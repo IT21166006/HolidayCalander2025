@@ -1,0 +1,294 @@
+:root {
+  --primary-color: #4a90e2;
+  --text-color: #333;
+  --background-color: #fff;
+}
+
+body {
+  width: 350px;
+  margin: 0;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  color: white;
+  opacity: 0.9;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.current-datetime {
+  text-align: center;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#current-time {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+#current-date {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-top: 5px;
+}
+
+.holidays-container {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#current-month-holidays {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+}
+
+#holidays-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.holiday-item {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(248, 249, 250, 0.9);
+  border-left: 3px solid var(--primary-color);
+  backdrop-filter: blur(5px);
+}
+
+.settings {
+  position: relative;
+  align-self: flex-end;
+}
+
+#settings-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#settings-btn:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+#settings-panel {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+  width: 280px;
+  min-width: max-content;
+}
+
+.setting-item {
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-item label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #357abd;
+}
+
+.bg-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+  justify-items: center;
+}
+
+.bg-option {
+  width: 80px;
+  height: 50px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.bg-option:hover {
+  transform: scale(1.05);
+}
+
+.bg-option.selected {
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.bg-option[data-bg="bg1"] {
+  background-image: url('images/backgrounds/bg1.jpg');
+}
+
+.bg-option[data-bg="bg2"] {
+  background-image: url('images/backgrounds/bg2.jpg');
+}
+
+.bg-option[data-bg="bg3"] {
+  background-image: url('images/backgrounds/bg3.jpg');
+}
+
+.bg-option[data-bg="bg4"] {
+  background-image: url('images/backgrounds/bg4.jpg');
+}
+
+/* Overlay background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* Add close button to settings panel */
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+#close-settings {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  color: #666;
+  transition: color 0.3s;
+}
+
+#close-settings:hover {
+  color: #333;
+}
+
+/* Add error state styles */
+.error {
+    color: #dc3545;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    display: none;
+}
+
+.error.show {
+    display: block;
+}
+ 
