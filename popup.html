@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sri Lankan Holiday Calendar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/icon128.png" alt="Logo" class="logo">
+      <h1 id="title" data-en="Sri Lankan Holiday Calendar" 
+          data-si="ශ්‍රී ලංකා නිවාඩු දින දර්ශනය" 
+          data-ta="இலங்கை விடுமுறை நாட்காட்டி">
+      </h1>
+    </div>
+
+    <div class="current-datetime">
+      <div id="current-time"></div>
+      <div id="current-date"></div>
+    </div>
+
+    <div class="holidays-container">
+      <h2 id="current-month-holidays"></h2>
+      <div id="holidays-list"></div>
+    </div>
+
+    <div class="settings">
+      <button id="settings-btn">⚙️</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel" class="hidden">
+    <div class="settings-header">
+      <span class="settings-title" data-en="Settings" data-si="සැකසුම්" data-ta="அமைப்புகள்"></span>
+      <button id="close-settings">×</button>
+    </div>
+    <div class="setting-item">
+      <label id="language-label" 
+          data-en="Language:" 
+          data-si="භාෂාව:" 
+          data-ta="மொழி:">Language:</label>
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="si">සිංහල</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+    </div>
+    <div class="setting-item">
+      <label id="bg-label" 
+          data-en="Background:" 
+          data-si="පසුබිම:" 
+          data-ta="பின்னணி:">Background:</label>
+      <div class="bg-options">
+        <div class="bg-option" data-bg="bg1"></div>
+        <div class="bg-option" data-bg="bg2"></div>
+        <div class="bg-option" data-bg="bg3"></div>
+        <div class="bg-option" data-bg="bg4"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="holidays.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html> 
